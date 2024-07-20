@@ -20,7 +20,7 @@ header .logo {
 }
 
 header .logo img {
-    width: 40px;
+    width: 40px; 
     margin-right: 10px;
 }
 
@@ -46,10 +46,30 @@ header nav ul li a:hover {
 }
 
 .promo {
-    background-color: #FFDD44;
+    position: relative;
     padding: 20px;
     text-align: center;
-    
+    color: white; /* Change text color to make it visible on the background image */
+    overflow: hidden; /* Ensure the pseudo-element doesn't overflow the section */
+}
+
+.promo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../HTML_AND_CSS-DAY-2/poster.png'); /* Add your image path here */
+    background-size: cover; /* Make the background image cover the whole section */
+    background-position: center; /* Center the background image */
+    filter: blur(2px); /* Adjust the blur radius */
+    z-index: -1; /* Place the pseudo-element behind the text */
+}
+
+.promo .content {
+    position: relative;
+    z-index: 1; /* Ensure the text content is above the pseudo-element */
 }
 
 .promo h2 {
@@ -59,7 +79,7 @@ header nav ul li a:hover {
 
 .promo p {
     margin: 10px 0 0 0;
-    color: #333;
+    color: white; /* Ensure text is visible on the background image */
 }
 
 main.info {
